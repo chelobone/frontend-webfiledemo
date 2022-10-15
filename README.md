@@ -1,46 +1,35 @@
-# Getting Started with Create React App
+# Laboratorio carga de archivos: Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Este es un laboratorio para entender como se comportan las distintas formas de transferir archivos 
 
-## Available Scripts
+## *Tus*
 
-In the project directory, you can run:
+#### Es un estándar de transferencia de archivos. Este framework separa en bloques de bytes el archivo, y los envia al servidor para que este los junte. Pueden revisar esta [prueba de concepto](https://github.com/chelobone/chunkUpload) que realicé el año 2019, para entender como funciona este tipo de estándar
 
-### `npm start`
+El archivo [FileTus.tsx](src/tus/FileTus.tsx) permite probar la carga de archivos usando el estándar Tus.
+#
+## *Multi-part upload*
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+#### Este estándar de carga de archivos permite enviar el archivo en partes separadas en un mismo body
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+El archivo [File.tsx](src/multipart/File.tsx) permite proba la carga de archivos usando el estándar multipart.
 
-### `npm test`
+## *Bonus!*
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Esta prueba de concepto tiene un agregado, y es que al cargar un archivo usando este estándar, se cargará adicionalmente en un bucket de AWS S3.
+#
+## Helper
+El archivo [Helper.tsx](src/helpers/Helper.tsx) tiene los métodos de consulta al API de prueba de concepto.
 
-### `npm run build`
+## *Backend de carga de archivos*
+El proyecto de backend para carga de archivos lo pueden encontrar en este link: [WebFileDemo](https://github.com/chelobone/webfiledemo)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+### *Para ejecutar localmente*
+Para poder ejecutar localmente este proyecto, debes tener la versión 16.16.0
+```
+git clone
+npm install
+npm start
+```
